@@ -9,11 +9,11 @@
 
 | Model | Base | Size | VRAM (QLoRA) | Context | License |
 |-------|------|------|--------------|---------|---------|
-| **Zen Coder 4B** | Qwen3-4B-Instruct | 4B | 8 GB | 32K | Apache 2.0 |
+| **Zen Coder 4B** | Zen Coder 4B | 4B | 8 GB | 32K | Apache 2.0 |
 | **Zen Coder 24B** | Devstral-Small-2-24B | 24B | 24 GB | 256K | Apache 2.0 |
-| **Zen Coder 123B** | Devstral-2-123B | 123B | 128 GB | 256K | Mistral Research |
-| **Zen Coder MAX** | GLM-4.7 (358B MoE) | 358B | 180 GB | 200K | GLM-4 License |
-| **Zen Coder ULTRA** | Kimi-K2 (1T MoE) | 1T | 400 GB | 128K | MIT |
+| **Zen Coder 123B** | Zen Coder 123B | 123B | 128 GB | 256K | Apache 2.0 |
+| **Zen Coder MAX** | Zen Coder MAX (358B MoE) | 358B | 180 GB | 200K | Apache 2.0 |
+| **Zen Coder ULTRA** | Zen Coder ULTRA (1T MoE) | 1T | 400 GB | 128K | MIT |
 
 ## Installation
 
@@ -46,7 +46,7 @@ from zen_trainer import ZenTrainer
 
 # Train Zen Coder 4B on your data
 trainer = ZenTrainer(
-    model_key="qwen3-4b",
+    model_key="zen-coder-4b",
     dataset_path="path/to/your/dataset",
     output_dir="./output/zen-coder-4b",
 )
@@ -61,7 +61,7 @@ from zen_trainer import ZenBenchmark
 # Benchmark against SoTA models
 bench = ZenBenchmark(
     model_path="./output/zen-coder-4b",
-    model_key="qwen3-4b",
+    model_key="zen-coder-4b",
 )
 results = bench.run_all()
 bench.compare_to_baseline()
@@ -71,7 +71,7 @@ bench.compare_to_baseline()
 
 ```bash
 # Train
-zen-train --model qwen3-4b --dataset ./data --output ./output
+zen-train --model zen-coder-4b --dataset ./data --output ./output
 
 # Benchmark
 zen-benchmark --model ./output/zen-coder-4b --suite all
@@ -104,7 +104,7 @@ The trainer automatically selects the best backend:
 
 ## 12 ARC Benchmarks
 
-Evaluation suite based on [GLM-4.5](https://github.com/zai-org/glm-simple-evals):
+Evaluation suite:
 
 **Agentic:**
 - TAU-Bench (tool-agent-user interaction)
@@ -155,7 +155,7 @@ Models are designed for the [Zen Agentic Dataset](https://huggingface.co/dataset
 
 ```python
 trainer = ZenTrainer(
-    model_key: str,              # Model identifier (qwen3-4b, devstral-24b, etc.)
+    model_key: str,              # Model identifier (zen-coder-4b, zen-coder-24b, etc.)
     dataset_path: str,           # HuggingFace dataset or local path
     output_dir: str,             # Output directory for checkpoints
     backend: str = "auto",       # mlx, unsloth, deepspeed, or auto
@@ -191,7 +191,7 @@ bench.compare_to_baseline()      # Compare to SoTA models
 from zen_trainer import get_model_config, list_models_by_vram, estimate_training_cost
 
 # Get model config
-cfg = get_model_config("glm47-358b")
+cfg = get_model_config("zen-coder-max")
 print(cfg.vram_qlora)  # 180 GB
 
 # List models for your hardware
@@ -206,7 +206,7 @@ print(cost)  # {'hours_estimate': (2.0, 4.0), 'cost_estimate_usd': (70, 140), ..
 
 - [Zen Agentic Dataset](https://huggingface.co/datasets/hanzoai/zen-agentic-dataset) - Training data
 - [Zen Coder Models](https://huggingface.co/zenlm) - Fine-tuned models
-- [GLM Simple Evals](https://github.com/zai-org/glm-simple-evals) - Evaluation toolkit
+- Evaluation toolkit
 - [Hanzo MCP](https://github.com/hanzoai/mcp) - Model Context Protocol tools
 - [Hanzo AI](https://hanzo.ai) - AI infrastructure platform
 
