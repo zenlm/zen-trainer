@@ -10,7 +10,7 @@
 | Model | Base | Size | VRAM (QLoRA) | Context | License |
 |-------|------|------|--------------|---------|---------|
 | **Zen Coder 4B** | Zen Coder 4B | 4B | 8 GB | 32K | Apache 2.0 |
-| **Zen Coder 24B** | Devstral-Small-2-24B | 24B | 24 GB | 256K | Apache 2.0 |
+| **Zen Coder 24B** | Zen Coder 24B base | 24B | 24 GB | 256K | Apache 2.0 |
 | **Zen Coder 123B** | Zen Coder 123B | 123B | 128 GB | 256K | Apache 2.0 |
 | **Zen Coder MAX** | Zen Coder MAX (358B MoE) | 358B | 180 GB | 200K | Apache 2.0 |
 | **Zen Coder ULTRA** | Zen Coder ULTRA (1T MoE) | 1T | 400 GB | 128K | MIT |
@@ -198,7 +198,7 @@ print(cfg.vram_qlora)  # 180 GB
 models = list_models_by_vram(128)  # Models that fit 128GB
 
 # Estimate training cost
-cost = estimate_training_cost("devstral-24b", num_samples=100000)
+cost = estimate_training_cost("zen-coder-24b", num_samples=100000)
 print(cost)  # {'hours_estimate': (2.0, 4.0), 'cost_estimate_usd': (70, 140), ...}
 ```
 
