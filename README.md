@@ -104,7 +104,7 @@ The trainer automatically selects the best backend:
 
 ## 12 ARC Benchmarks
 
-Evaluation suite based on [GLM-4.5](https://github.com/zai-org/glm-simple-evals):
+Evaluation suite:
 
 **Agentic:**
 - TAU-Bench (tool-agent-user interaction)
@@ -155,7 +155,7 @@ Models are designed for the [Zen Agentic Dataset](https://huggingface.co/dataset
 
 ```python
 trainer = ZenTrainer(
-    model_key: str,              # Model identifier (qwen3-4b, devstral-24b, etc.)
+    model_key: str,              # Model identifier (zen-coder-4b, zen-coder-24b, etc.)
     dataset_path: str,           # HuggingFace dataset or local path
     output_dir: str,             # Output directory for checkpoints
     backend: str = "auto",       # mlx, unsloth, deepspeed, or auto
@@ -198,7 +198,7 @@ print(cfg.vram_qlora)  # 180 GB
 models = list_models_by_vram(128)  # Models that fit 128GB
 
 # Estimate training cost
-cost = estimate_training_cost("devstral-24b", num_samples=100000)
+cost = estimate_training_cost("zen-coder-24b", num_samples=100000)
 print(cost)  # {'hours_estimate': (2.0, 4.0), 'cost_estimate_usd': (70, 140), ...}
 ```
 
@@ -206,7 +206,7 @@ print(cost)  # {'hours_estimate': (2.0, 4.0), 'cost_estimate_usd': (70, 140), ..
 
 - [Zen Agentic Dataset](https://huggingface.co/datasets/hanzoai/zen-agentic-dataset) - Training data
 - [Zen Coder Models](https://huggingface.co/zenlm) - Fine-tuned models
-- [GLM Simple Evals](https://github.com/zai-org/glm-simple-evals) - Evaluation toolkit
+- Evaluation toolkit
 - [Hanzo MCP](https://github.com/hanzoai/mcp) - Model Context Protocol tools
 - [Hanzo AI](https://hanzo.ai) - AI infrastructure platform
 
