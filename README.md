@@ -10,9 +10,9 @@
 | Model | Base | Size | VRAM (QLoRA) | Context | License |
 |-------|------|------|--------------|---------|---------|
 | **Zen Coder 4B** | Zen MoDE 4B | 4B | 8 GB | 32K | Apache 2.0 |
-| **Zen Coder 24B** | Devstral-Small-2-24B | 24B | 24 GB | 256K | Apache 2.0 |
-| **Zen Coder 123B** | Devstral-2-123B | 123B | 128 GB | 256K | Mistral Research |
-| **Zen Coder MAX** | GLM-4.7 (358B MoE) | 358B | 180 GB | 200K | GLM-4 License |
+| **Zen Coder 24B** | Zen MoDE 24B | 24B | 24 GB | 256K | Apache 2.0 |
+| **Zen Coder 123B** | Zen MoDE 123B | 123B | 128 GB | 256K | Apache 2.0 |
+| **Zen Coder MAX** | Zen MoDE MAX (358B MoE) | 358B | 180 GB | 200K | Apache 2.0 |
 | **Zen Coder ULTRA** | Zen MoDE Ultra | 1T | 400 GB | 128K | MIT |
 
 ## Installation
